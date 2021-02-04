@@ -1,0 +1,174 @@
+$maincolor: #2980b9;
+$direc: rtl;
+$row: row;
+$left: left;
+$right: right;
+/*
+@if $direc == ltr {
+  $row: row;
+  $left: left;
+  $right: right;
+} @else {
+  $row: row-reverse;
+  $left: right;
+  $right: left;
+}
+*/
+/* @import '_import';
+ * @import '_import.scss'; */
+@mixin backarea($par) {
+  background-image: url($par);
+  background-size: cover;
+}
+* { box-sizing: border-box; }
+body { font-family: Tahoma, Arial; }
+.container { width: 1200px; margin: auto; position: relative; }
+.table { height: 100%; display: table; }
+.table-row {  display: table-row; }
+.overlay { background-color: rgba(49, 55, 61, .3); width: 100%; height: 100%; }
+.features, .header, .subscribe { min-width: 1200px; }
+.header { @include backarea('../images/105448.jpg'); color: #FFF;
+  .navbar { padding: 20px 0; position: absolute; top: 0; left: 0; width: 100%;
+    .logo { font-size: 24px; float: $left;
+      span { @extend %main-color; }
+    }
+    span { cursor: pointer; }
+    .links { float: $right;
+      i { margin-left: 10px; }
+    }
+  }
+  .table-row {
+    .intro { @extend %table-cell; @extend %text-center;
+      h1 { @extend %upper; margin: 0; font-weight: 800; font-size: 50px;
+        > span { @extend %main-color; }
+      }
+      p { margin: 8px 0 34px; line-height: 1.8; font-size: 20px; color: #999; }
+      .buttons { button { @extend %upper; @extend %trans; background-color: transparent; padding: 10px 0; font-size: 18px; width: 180px; margin: 0 8px; border-radius: 10px; border: 1px solid #909090;  color: #909090; cursor: pointer;
+        &:hover { background-color: $maincolor; color: #FFF; border: 1px solid $maincolor }
+      }
+      }
+    }
+  }
+  .arrow { position: absolute; bottom: 0;  left: 0; width: 100%; text-align: center; padding: 40px 0;
+    i { border: 1.7px solid #787878; border-radius: 50%; width: 41px; height: 41px; line-height: 39px; cursor: pointer; @extend %trans;
+      &:hover { background-color: $maincolor; color: #FFF; border-color: $maincolor }
+    }
+  }
+}
+.features { padding: 40px 0;
+  .boxx { @extend %text-center; display: flex; justify-content: space-around; flex-direction: $row;
+    .box { width: 24%;
+      i { color: $maincolor; border-radius: 50%; border: .7px solid $maincolor; width: 120px; height: 120px; line-height: 120px; @extend %trans;
+        &:hover { background-color: $maincolor; color: #FFF; border-color: $maincolor }
+      }
+      h3 { text-transform: uppercase; }
+      p { color: #787878; line-height: 1.7 }
+    }
+  }
+}
+.subscribe { @include backarea("../images/7f923030.jpg");
+  form { padding: 50px 0; width: 440px; margin: auto; text-align: center; vertical-align: middle;
+    input { width: 68%; height: 44px; outline: none; border: none; border-radius: 14px; line-height: 44px; font-size: 19px; padding: 8px 12px; margin-right: 4px;
+      &:focus { border: 1.6px solid $maincolor; }
+    }
+    button { @extend %upper; width: 27%; height: 44px; outline: none; border: none; border-radius: 14px; cursor: pointer; background-color: $maincolor; color: #FFF; }
+  }
+}
+.subscribe ::-webkit-input-placeholder { font-size: 19px; }
+.our-work { @extend %text-center;
+  h2 { @extend %upper; font-weight: normal; font-size: 28px;
+    > span { @extend %main-color; }
+  }
+  p { line-height: 2; margin-bottom: 30px; }
+  .items-box { width: 100%; display: flex; justify-content: space-between; flex-wrap: wrap; flex-direction: $row;
+    .item { width: 33%; height: 400px; position: relative; margin-bottom: 6px;
+      img { max-width: 100%; height: 100%; border-radius: 10px; }
+      .over { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(247, 96 ,14, .3); color: #FFF; border-radius: 10px; padding: 30px; display: none;
+        h3 { @extend %upper; margin-top: 70px; }
+        p { line-height: 1.8; }
+        button { @extend %upper; border: 1px solid #FFF; background-color: rgba(247, 96 ,14, .3); color: #FFF; padding: 10px; display: block; margin: auto; width: 70%; border-radius: 12px; cursor: pointer; @extend %trans;
+          &:hover { border-color: #FFF; background-color: #FFF; color: $maincolor }
+        }
+      }
+      &:hover .over { display: block; }
+    }
+  }
+  .show-more { background-color: transparent;
+    border: .7px solid #CCC; color: #666;
+    padding: 10px;
+    width: 150px;
+    display: block;
+    margin: 30px auto;
+    border-radius: 12px;
+    cursor: pointer; @extend %trans; @extend %upper;
+    &:hover { background-color: $maincolor; color: #FFF; border-color: $maincolor }
+  }
+}
+.testimo { @extend %text-center; @include backarea("../images/7f923030.jpg"); position: relative;
+  .client { padding: 50px 0; color: #FFF; font-size: 20px;
+    p { line-height: 2; width: 80%; margin: auto; font-style: italic; }
+    img { border-radius: 50%;}
+  }
+  .fa-chevron-right { position: absolute; right: 2px; top: 50%; color: #FFF; cursor: pointer; }
+  .fa-chevron-left { position: absolute; left: 2px; top: 50%; color: #FFF; cursor: pointer; }
+}
+.our-team { @extend %text-center;
+  h2 { @extend %upper; font-weight: normal; font-size: 28px;
+    > span { @extend %main-color; }
+  }
+  .main { line-height: 1.8; margin-bottom: 46px; }
+  .the-team { display: flex; justify-content: space-between; flex-direction: $row;
+    .person { width: 24%; color: #888;
+      h3 { @extend %upper; }
+      p { font-size: 15px; }
+      img { max-width: 100%; height: 200px; display: block; margin: auto;filter: gray; filter: grayscale(1); }
+      .social-icons i { background-color: #9da1a5; display: inline-block; width: 36px; height: 36px; line-height: 36px; border-radius: 50%; color: #FFF; }
+      &:hover img { filter: unset; filter: grayscale(0); }
+      &:hover { color: #555; transform: scale(1.2); }
+      &:hover .social-icons {
+        .fa-facebook { background-color: #3b5998; }
+        .fa-twitter { background-color: #55acee; }
+        .fa-google-plus { background-color: #dc4e41; }
+        .fa-youtube { background-color: #f00; }
+      }
+    }
+  }
+}
+.contact { @extend %text-center; @include backarea('../images/7f923030.jpg'); margin-top: 36px;
+  .overlay { padding: 40px 0; color: #FFF; }
+  h2 { @extend %upper; font-weight: normal; font-size: 28px;
+    > span { @extend %main-color; }
+  }
+  p { line-height: 1.8; margin-bottom: 46px; }
+  form { width: 80%; margin: 28px auto; text-align: center; overflow: hidden;
+    input[type="text"], input[type="email"] {  width: 48%; padding: 0 10px; height: 44px; line-height: 44px; border-radius: 16px; outline: none; border: none; }
+    input[type="text"] { margin-right: 4%; float: left; }
+    input:focus, textarea:focus { outline: none; border: .7px solid $maincolor }
+    textarea { margin-top: 20px; width: 100%; resize: vertical; padding: 10px 16px; border-radius: 16px; outline: none; border: none; line-height: 24px; height: 140px; }
+  }
+  .info { width: 100%; display: flex; justify-content: space-between;  flex-direction: $row; margin-top: 20px;
+    button { @extend %upper; background-color: transparent;
+      border: .7px solid #666; color: #666;
+      padding: 10px;
+      width: 150px;
+      border-radius: 12px;
+      cursor: pointer; @extend %trans;
+      &:hover { background-color: $maincolor; color: #FFF; border-color: $maincolor }
+    }
+    .form-icons { i { display: inline-block; width: 38px; height: 38px; line-height: 38px; border-radius: 50%; color: #FFF; }
+      .fa-facebook { background-color: #3b5998; }
+      .fa-twitter { background-color: #55acee; }
+      .fa-google-plus { background-color: #dc4e41; }
+      .fa-youtube { background-color: #f00; }
+    }
+  }
+}
+footer { background-color: #3b434c; color: #CCC; padding: 30px 0; overflow: hidden;
+  .copy { float: $left; }
+  .design { float: $right; }
+}
+%text-center { text-align: center; }
+%table-cell { display: table-cell; vertical-align: middle; }
+%upper { text-transform: uppercase; }
+%main-color { color: $maincolor }
+%trans { transition: all .6s ease-in-out; }
